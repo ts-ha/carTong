@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/user_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_edit_profile" />
+
+
+    <TextView
+        android:id="@+id/user_nickName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_img"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="닉네입"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="20dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="차량 번호"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/user_carNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/black"
+            android:textSize="19sp" />
+
+        <ImageButton
+            android:id="@+id/buttonChangNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+            android:layout_marginRight="@dimen/common_left_drawer_icon_left_margin"
+            android:background="@drawable/btn_edit_list" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="20dp" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="비밀번호 변경"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20px"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/pw_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+            android:layout_marginRight="@dimen/common_left_drawer_icon_left_margin"
+            android:background="@drawable/btn_edit_list" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/radius_set_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:text="@string/radius_label"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="20px"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/radius_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+            android:layout_marginRight="@dimen/common_left_drawer_icon_left_margin" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/auxline" />
+
+    <Space
+        android:layout_width="20px"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="로그아웃"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/relativeLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:background="@color/colorPrimary">-->
+
+    <!-- -->
+
+    <!--</RelativeLayout>-->
+
+    <!--<Button-->
+    <!--android:id="@+id/buttonLogout"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="로그아웃" />-->
+</LinearLayout>

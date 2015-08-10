@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_window">#FFE5E5E5</color>
+    <color name="colorPrimary">#98bdd8</color>
+    <color name="common_base_background_color">#FFFFFF</color>
+    <color name="common_sub_title_background_color">#EAEDED</color>
+    <color name="common_actionbar_title_text_color">#000000</color>
+    <color name="common_divider_color">#878787</color>
+    <color name="common_content_dark_text_color">#404040</color>
+    <color name="titl_bar_bg">#98bdd8</color>
+    <color name="setting_bg">#f5f5f5</color>
+
+    <color name="activity_login_input_layout_background_color">@color/common_sub_title_background_color</color>
+
+    <color name="fragment_lifelog_text_color">@color/common_content_dark_text_color</color>
+    <color name="fragment_activity_table_text_color">@color/common_content_dark_text_color</color>
+    <color name="fragment_activity_button_layout_divider_color">#DEE3E3</color>
+    <color name="fragment_activity_table_divider_color">#DBDFDF</color>
+
+    <color name="list_item_notice_content_text_color">@color/common_content_dark_text_color</color>
+
+    <color name="activity_notice_impl_content_text_color">@color/common_content_dark_text_color</color>
+
+    <color name="fragment_emergency_choose_button_divider_color">#B3B7BA</color>
+    <color name="fragment_emergency_choose_people_divider_color">#DBDFDF</color>
+    <color name="fragment_emergency_choose_people_layout_background_color">@color/common_sub_title_background_color</color>
+    <color name="fragment_emergency_choose_selected_people_text_color">@color/common_content_dark_text_color</color>
+
+    <color name="list_item_checked_contact_info_content_text_color">@color/common_content_dark_text_color</color>
+
+    <color name="fragment_setting_divider_color">#DCE0E0</color>
+    <color name="fragment_setting_row_text_color">@color/common_content_dark_text_color</color>
+    <color name="fragment_setting_password_sub_title_background_color">@color/common_sub_title_background_color</color>
+</resources>

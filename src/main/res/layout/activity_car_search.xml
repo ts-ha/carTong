@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.neighbor.ex.tong.ui.activity.CarSearchActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/titl_bar_bg"
+        android:orientation="horizontal">
+
+        <AutoCompleteTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/btn_top_search"
+            android:gravity="center_vertical"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="number"
+            android:maxLength="4"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textColorHint="#b3ffffff"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <ImageButton
+            android:id="@+id/search_voice"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_top_mic" />
+
+        <ImageButton
+            android:id="@+id/search_carNo"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_tong_number_normal" />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/listViewCarSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout2" />
+
+</RelativeLayout>

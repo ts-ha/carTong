@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="48dp"
+    android:gravity="center" android:orientation="horizontal"
+    android:background="#B8B8B8" android:padding="7dp">
+
+    <EditText
+        android:id="@+id/chat_content" android:layout_width="0dp"
+        android:layout_height="28dp"  android:textColor="@android:color/black"
+        android:textSize="16sp" android:layout_weight="0.8"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/buttonSend" android:layout_width="0dp"
+        android:layout_weight="0.2"  android:textColor="@android:color/black"
+        android:layout_height="28dp" android:layout_marginLeft="7dp"
+        android:text="@string/show_comment" android:background="@drawable/btn_common_selector" />
+
+</LinearLayout>

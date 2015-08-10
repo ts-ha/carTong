@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu">
+        <item>통하기</item>
+        <item>메세지함</item>
+        <item>통끼리</item>
+        <item>설정</item>
+    </string-array>
+</resources>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_base_background_color"
+    android:orientation="vertical">
+    <!--android:background="@drawable/tiltie_bg2"-->
+    <!--android:background="@drawable/tiltie_bg2"-->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_actionbar_height"
+        android:background="@color/titl_bar_bg"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/title_munu_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent">
+
+                <Button
+                    android:id="@+id/left"
+                    android:layout_width="@dimen/common_actionbar_menu_button_width"
+                    android:layout_height="@dimen/common_actionbar_menu_button_height"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/actionbar_menu_button_bg" />
+            </LinearLayout>
+
+            <!--<TextView-->
+            <!--android:id="@+id/title"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="@dimen/common_actionbar_menu_button_right_margin"-->
+            <!--android:layout_weight="1"-->
+            <!--android:textColor="@color/common_actionbar_title_text_color"-->
+            <!--android:textSize="@dimen/common_actionbar_title_text_size"-->
+            <!--android:textStyle="bold" />-->
+
+
+            <TextView
+                android:id="@+id/textViewTile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" />
+
+            <AutoCompleteTextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/btn_top_search"
+                android:gravity="center_vertical|right"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="number"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textColorHint="#b3ffffff"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:windowSoftInputMode="stateHidden|adjustPan" />
+
+            <ImageButton
+                android:id="@+id/search_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_top_mic" />
+
+            <ImageButton
+                android:id="@+id/search_carNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/car_number_selector" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/drawer"
+            android:layout_width="@dimen/common_left_drawer_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/common_base_background_color"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="110dp"
+                android:background="@color/titl_bar_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/icon_menu_user" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/textViewNickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용자"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu0"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_left_drawer_item_height"
+                android:background="@drawable/selectable_background_example"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+                    android:src="@drawable/icon_menu_comment" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_text_left_margin"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                    android:text="통하기"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_left_drawer_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/auxline" />
+
+            <LinearLayout
+                android:id="@+id/menu1"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_left_drawer_item_height"
+                android:background="@drawable/selectable_background_example"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView_menu_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+                    android:src="@drawable/icon_menu_around" />
+
+                <TextView
+                    android:id="@+id/textMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_text_left_margin"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                    android:text="내 주변과 통하기"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_left_drawer_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/auxline" />
+
+            <LinearLayout
+                android:id="@+id/menu2"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_left_drawer_item_height"
+                android:background="@drawable/selectable_background_example"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+                    android:src="@drawable/icon_menu_group" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_text_left_margin"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                    android:text="통끼리"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_left_drawer_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/auxline" />
+
+            <LinearLayout
+                android:id="@+id/menu3"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_left_drawer_item_height"
+                android:background="@drawable/selectable_background_example"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+                    android:src="@drawable/icon_menu_msgbox" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_text_left_margin"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                    android:text="메세지 함"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_left_drawer_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/auxline" />
+
+            <LinearLayout
+                android:id="@+id/menu4"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_left_drawer_item_height"
+                android:background="@drawable/selectable_background_example"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_icon_left_margin"
+                    android:src="@drawable/icon_menu_config" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/common_left_drawer_text_left_margin"
+                    android:background="?android:attr/activatedBackgroundIndicator"
+                    android:gravity="center_vertical"
+                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+                    android:text="개인정보 수정"
+                    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/common_left_drawer_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/auxline" />
+
+                
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+</LinearLayout>

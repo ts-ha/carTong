@@ -1,0 +1,60 @@
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ToolBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    contentInsetLeft="72dp"
+    contentInsetStart="72dp"
+    android:background="@color/colorPrimary"
+    android:elevation="4dp"
+    android:minHeight="@dimen/abc_action_bar_default_height_material">
+
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <AutoCompleteTextView
+            android:id="@+id/search_text"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="number"
+            android:maxLength="4"
+            android:maxLines="1"
+            android:paddingLeft="2dp"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textColorHint="#b3ffffff"
+            android:layout_marginRight="3dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/icon_search"/>
+
+
+        <ImageButton
+            android:id="@+id/search_voice"
+            android:layout_width="18dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="8dp"
+            android:scaleType="fitXY"
+            android:src = "@drawable/voice_rec_selector"
+            android:background="@null"/>
+
+        <ImageButton
+            android:id="@+id/search_carNo"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/car_number_selector"/>
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

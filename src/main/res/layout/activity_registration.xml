@@ -1,0 +1,173 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#abd3e4"
+    tools:context="com.neighbor.ex.tong.ui.activity.RegistrationActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="@dimen/abc_action_bar_default_height_material">
+
+        <ImageButton
+            android:id="@+id/back_home"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_top_prev_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/back_home"
+            android:text="@string/title_registration"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:id="@+id/linearLayout3"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/regist_id"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@android:color/white"
+                android:hint="@string/hint_email"
+                android:inputType="text"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:textColorHint="@android:color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/check_id"
+                android:layout_width="60dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="21dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_common_selector"
+                android:text="중복확인"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/regist_psw"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/white"
+            android:drawablePadding="8dp"
+            android:hint="@string/hint_psw"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:password="true"
+            android:singleLine="true"
+            android:textColorHint="@android:color/white"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <EditText
+                android:id="@+id/regist_plateNumber"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="@android:color/white"
+                android:drawablePadding="8dp"
+                android:hint="@string/login_plate_number"
+                android:inputType="text"
+                android:maxLength="15"
+                android:singleLine="true"
+                android:textColorHint="@android:color/white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/check_plate"
+                android:layout_width="60dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="21dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btn_common_selector"
+                android:text="중복확인"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/regist_name1"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/white"
+            android:drawablePadding="8dp"
+            android:hint="@string/login_name"
+            android:inputType="text"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColorHint="@android:color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/regist_submit"
+            android:layout_width="248dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_btn_selector"
+            android:text="@string/login_complete"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_edit_profile"
+        android:layout_below="@+id/title_registration"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp" />
+
+</RelativeLayout>

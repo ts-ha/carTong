@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sendingParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B8B8B8"
+    android:orientation="vertical"
+    tools:context="com.neighbor.ex.tong.ui.activity.SendMsgActivity">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar_normal"
+        style="@style/ToolBarStyle"
+        contentInsetLeft="72dp"
+        contentInsetStart="72dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:minHeight="@dimen/abc_action_bar_default_height_material" />
+
+    <TextView
+        android:id="@+id/destCarNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_car_numplate"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btn_emoticon"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.15"
+            android:background="@drawable/keypad_selector" />
+
+        <EditText
+            android:id="@+id/userMsg"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.7"
+            android:inputType="text"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="0.15"
+            android:background="@drawable/btn_common_selector"
+            android:text="@string/send_tong" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emoticons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/keyboard_height"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+</LinearLayout>

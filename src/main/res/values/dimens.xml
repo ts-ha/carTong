@@ -1,0 +1,92 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="keyboard_height">250dip</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="common_small_margin">5dp</dimen>
+    <dimen name="common_normal_margin">10dp</dimen>
+    <dimen name="common_big_margin">20dp</dimen>
+    <dimen name="common_content_default_padding">15dp</dimen>
+    <dimen name="common_actionbar_height">56dp</dimen>
+    <dimen name="common_actionbar_default_padding">16dp</dimen>
+    <dimen name="common_actionbar_title_text_size">20sp</dimen>
+    <dimen name="common_actionbar_menu_button_right_margin">20dp</dimen>
+    <dimen name="common_actionbar_menu_button_width">25dp</dimen>
+    <dimen name="common_actionbar_menu_button_height">20dp</dimen>
+    <dimen name="common_actionbar_previous_button_width">11dp</dimen>
+    <dimen name="common_actionbar_previous_button_height">18dp</dimen>
+    <dimen name="common_left_drawer_width">304dp</dimen>
+    <dimen name="common_left_drawer_item_height">@dimen/common_list_item_height</dimen>
+    <dimen name="common_left_drawer_icon_left_margin">16dp</dimen>
+    <dimen name="common_left_drawer_text_left_margin">16dp</dimen>
+    <dimen name="common_left_drawer_text_size">16sp</dimen>
+    <dimen name="common_one_button_width">249dp</dimen>
+    <dimen name="common_button_height">38dp</dimen>
+    <dimen name="common_list_item_height">47dp</dimen>
+
+    <dimen name="activity_login_input_layout_big_margin">20dp</dimen>
+    <dimen name="activity_login_input_layout_normal_margin">10dp</dimen>
+    <dimen name="activity_login_input_layout_small_margin">5dp</dimen>
+    <dimen name="activity_login_input_layout_text_size">14sp</dimen>
+    <dimen name="activity_login_input_edit_height">30dp</dimen>
+    <dimen name="activity_login_join_button_text_size">16sp</dimen>
+    <dimen name="activity_login_sign_in_button_text_size">14sp</dimen>
+    <dimen name="activity_login_sign_in_button_width">108dp</dimen>
+    <dimen name="activity_login_sign_in_button_height">25dp</dimen>
+    <dimen name="activity_login_left_right_margin">@dimen/common_content_default_padding</dimen>
+
+    <dimen name="fragment_lifelog_normal_margin">16dp</dimen>
+    <dimen name="fragment_lifelog_graph_title_text_size">14sp</dimen>
+
+    <dimen name="fragment_activity_left_right_margin">15dp</dimen>
+    <dimen name="fragment_activity_time_choose_layout_top_bottom_margin">8dp</dimen>
+    <dimen name="fragment_activity_time_choose_button_margin">2dp</dimen>
+    <dimen name="fragment_activity_time_choose_button_height">25dp</dimen>
+    <dimen name="fragment_activity_time_choose_button_text_size">12sp</dimen>
+    <dimen name="fragment_activity_table_y_axis_column_width">110dp</dimen>
+    <dimen name="fragment_activity_table_x_axis_row_height">32dp</dimen>
+    <dimen name="fragment_activity_table_default_row_height">@dimen/common_list_item_height</dimen>
+    <dimen name="fragment_activity_table_header_text_size">14sp</dimen>
+    <dimen name="fragment_activity_table_contents_unit_text_size">12sp</dimen>
+
+    <dimen name="list_item_notice_content_text_size">16sp</dimen>
+    <dimen name="list_item_notice_height">@dimen/common_list_item_height</dimen>
+    <dimen name="list_item_notice_left_right_margin">15dp</dimen>
+    <dimen name="list_item_notice_content_left_margin">22dp</dimen>
+
+    <dimen name="list_item_symptom_content_text_size">16sp</dimen>
+    <dimen name="list_item_symptom_left_right_margin">15dp</dimen>
+
+    <dimen name="fragment_notice_impl_content_text_size">16sp</dimen>
+
+    <dimen name="fragment_emergency_choose_regist_button_width">@dimen/common_one_button_width
+    </dimen>
+    <dimen name="fragment_emergency_choose_regist_button_height">@dimen/common_button_height</dimen>
+    <dimen name="fragment_emergency_choose_regist_button_margin">8dp</dimen>
+    <dimen name="fragment_emergency_choose_regist_button_text_size">16sp</dimen>
+    <dimen name="fragment_emergency_choose_people_layout_height">50dp</dimen>
+    <dimen name="fragment_emergency_choose_selected_people_text_size">16sp</dimen>
+
+    <dimen name="list_item_checked_contact_info_profile_size">26dp</dimen>
+    <dimen name="list_item_checked_contact_info_content_margin">14dp</dimen>
+    <dimen name="list_item_checked_contact_info_content_text_size">16sp</dimen>
+
+    <dimen name="fragment_setting_row_height">@dimen/common_list_item_height</dimen>
+    <dimen name="fragment_setting_name_text_size">20sp</dimen>
+    <dimen name="fragment_setting_row_text_size">16sp</dimen>
+    <dimen name="fragment_setting_ok_button_text_size">16sp</dimen>
+    <dimen name="fragment_setting_big_margin">20dp</dimen>
+    <dimen name="fragment_setting_normal_margin">10dp</dimen>
+    <dimen name="fragment_setting_small_margin">5dp</dimen>
+    <dimen name="fragment_setting_left_right_margin">@dimen/common_content_default_padding</dimen>
+    <dimen name="fragment_setting_logout_button_text_size">12sp</dimen>
+    <dimen name="fragment_setting_logout_button_width">75dp</dimen>
+    <dimen name="fragment_setting_logout_button_height">25sp</dimen>
+    <dimen name="fragment_setting_input_edit_height">30dp</dimen>
+    <dimen name="fragment_setting_change_password_height">33dp</dimen>
+    <dimen name="fragment_setting_password_text_top_margin">14dp</dimen>
+    <dimen name="fragment_setting_password_text_bottom_margin">9dp</dimen>
+    <dimen name="fragment_setting_brief_out_margin">12dp</dimen>
+    <dimen name="fragment_setting_brief_inner_margin">9dp</dimen>
+</resources>

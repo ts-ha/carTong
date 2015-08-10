@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/btn_top_groupedit_normal"
+        android:orderInCategory="100"
+        android:title="@string/add_group"
+        yourapp:showAsAction="always" />
+    <item
+        android:id="@+id/action_delet"
+        android:icon="@drawable/btn_top_groupdel_normal"
+        android:orderInCategory="100"
+        android:title="@string/add_group"
+        yourapp:showAsAction="always" />
+    <!--<item-->
+    <!--android:id="@+id/action_member"-->
+    <!--android:icon="@drawable/btn_top_newmember_normal"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="@string/add_group"-->
+    <!--yourapp:showAsAction="always" />-->
+</menu>

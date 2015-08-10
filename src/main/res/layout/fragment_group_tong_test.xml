@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.neighbor.ex.tong.ui.fragment.GroupTongFragment">
+
+
+    <com.neighbor.ex.tong.ui.fragment.TongSegment
+        android:id="@+id/radioGroupMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:checkedButton="@+id/radioButtonMyGroup"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButtonMyGroup"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:button="@null"
+            android:gravity="center"
+            android:text="내 그룹"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAllGroup"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="모든 그룹"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSearchGroup"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:gravity="center"
+            android:text="그룹 검색"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </com.neighbor.ex.tong.ui.fragment.TongSegment>
+
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroupMain"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="등록된 그룹이 없습니다."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMyGroupList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioGroupMain"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listViewMyGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAllGroupList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioGroupMain"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listViewAllGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSearchGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioGroupMain"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--<Spinner-->
+            <!--android:id="@+id/spinner"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:entries="@array/search_type" />-->
+
+            <EditText
+                android:id="@+id/editTextKeyword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="검색" />
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/listViewSearchGroup"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/make_group"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/make_group_selector" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

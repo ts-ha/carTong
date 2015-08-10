@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/sendingParent"
+    tools:context="com.neighbor.ex.tong.ui.activity.PhotoSendActivity"
+    android:background="#B8B8B8">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/ToolBarStyle" android:layout_width="match_parent"
+        android:layout_height="wrap_content" contentInsetLeft="72dp"
+        contentInsetStart="72dp"  android:background="@color/colorPrimary"
+        android:elevation="4dp"   android:id="@+id/toolbar_normal"
+        android:minHeight="@dimen/abc_action_bar_default_height_material"/>
+
+    <ImageView
+        android:layout_width="180dp" android:layout_height="180dp"
+        android:background="@drawable/detail_photo_border"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
+        android:id="@+id/userPic" android:layout_marginTop="16dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="110dp"
+        android:orientation="horizontal"    android:padding="10dp"
+        android:layout_below="@+id/userPic" android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="0dp"  android:layout_height="50dp"
+            android:layout_weight="0.15" android:id="@+id/btn_emoticon"
+            android:background="@drawable/keypad_selector"/>
+
+        <EditText
+            android:id="@+id/userMsg"           android:layout_width="0dp"
+            android:layout_height="80dp"        android:maxLines="1"
+            android:textSize="18sp"             android:layout_weight="0.7"
+            android:inputType="text"            android:maxLength="15"/>
+
+        <Button
+            android:layout_width="0dp"      android:layout_height="40dp"
+            android:layout_weight="0.15"    android:id="@+id/btn_send"
+            android:background="@drawable/btn_common_selector"
+            android:layout_marginLeft="7dp" android:text="@string/send_tong"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="@dimen/keyboard_height"
+        android:background="@android:color/transparent"  android:id="@+id/emotions"
+        android:orientation="vertical"  android:visibility="gone"/>
+
+</LinearLayout>

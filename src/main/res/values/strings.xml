@@ -1,0 +1,127 @@
+<resources>
+    <string name="app_name">카통</string>
+
+    <string-array name="menu_array">
+        <item>통하기</item>
+        <item>내 주변과 통</item>
+        <item>통끼리</item>
+        <item>메시지 함</item>
+        <item>개인정보 수정</item>
+    </string-array>
+
+    <string-array name="search_type">
+        <item>ID</item>
+        <item>키워드</item>
+    </string-array>
+
+    <string name="search_hint">차량 번호</string>
+    <string name="radius_label">주변 반경 설정</string>
+    <string name="order_distance">거리순</string>
+    <string name="order_message">최근메세지</string>
+    <string name="order_map">지도보기</string>
+    <string name="voice_prompt">차량번호 뒷자리 숫자4개를 말하세요.</string>
+    <string name="tab_highway">고속도로</string>
+    <string name="tab_rest">휴게소</string>
+    <string name="send_tong">전송</string>
+    <string name="action_settings">설정</string>
+    <string name="user_name">사용자 1</string>
+    <string name="make_message">제보하기</string>
+
+    <string name="title_login">로그인</string>
+    <string name="title_registration">회원가입</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_psw">Password</string>
+    <string name="login_submit">로그인</string>
+    <string name="login_next">다음</string>
+    <string name="login_complete">완료</string>
+    <string name="login_name">별명</string>
+    <string name="login_plate_number">차량번호판</string>
+    <string name="start_btn">카통 시작하기</string>
+    <string name="error_title">!오류</string>
+    <string name="error_message">서버와 연결이 원할하지 않습니다.\n 잠시 후 재시도 해 주시기 바랍니다. </string>
+    <string name="error_duplicate">동일한 아이디가 존재합니다. </string>
+    <string name="error_none">사용 가능한 아이디 입니다.</string>
+    <string name="error_empty">아이디와 비밀번호는 필수항목 입니다.</string>
+    <string name="error_any_empty">입력되지 않은 항목이 있습니다.</string>
+    <string name="error_non_formal">올바른 아이디형식이 아닙니다.</string>
+    <string name="error_incorrent_account">아이디 또는 비밀 번호 입력 오류 입니다.</string>
+    <string name="error_duplicate_plate">동일한 번호판이 존재합니다.</string>
+    <string name="error_none_plate">사용 가능한 차량번호 입니다.</string>
+    <string name="login_forget_request">아이디/비밀번호 분실 문의</string>
+    <string name="error_empty_plate">차량번호는 필수항목 입니다.</string>
+    <string name="gps_warnning">무선 네트워크 사용, GPS 위성 사용을 모두 체크하셔야 정확한 위치 서비스가 가능합니다.\n위치 서비스 기능을 설정하시겠습니까? </string>
+    <string name="title_mygroup">내그룹</string>
+    <string name="title_groups">전체그룹</string>
+    <string name="title_join">가입하기</string>
+    <string name="title_no_group">등록된 그룹이 없습니다.</string>
+    <string name="add_group">새그룹</string>
+    <string name="new_group_label">그룹명을 입력하세요.</string>
+    <string name="new_group_desc">그룹 설명을 입력하세요.</string>
+    <string name="make_group_label">만들기</string>
+    <string name="cancel_group_label">취소</string>
+    <string name="wait_label">Waiting ...</string>
+    <string name="info_label">안내</string>
+    <string name="exist_group_label">동일한 그룹명이 존재합니다.</string>
+    <string name="info_ok">확인</string>
+    <string name="setting_title">설정</string>
+    <string name="newtong_title">새통</string>
+    <string name="post_label">게시</string>
+    <string name="expressway_label">고속도로</string>
+    <string name="expresswayrest_label">휴게소</string>
+    <string name="join_request_label">가입요청</string>
+    <string name="show_comment">댓글</string>
+    <string name="cafe_title">대전방모임</string>
+    <string name="mode_label">모드설정</string>
+    <string name="mode_voice_label">음성모드</string>
+    <string name="mode_text_label">텍스트모드</string>
+
+    <string name="notice_label">알림</string>
+    <string name="select_message_label">메세지 선택</string>
+    <string name="recommend_label">추천</string>
+    <string name="accident_label">공사/사고</string>
+    <string name="report_label">제보하기</string>
+    <string name="no_report">공사/사고정보가 존재하지 않습니다.</string>
+    <string name="set_gps_title">위치 서비스 설정</string>
+    <string name="load_company">도로교통연구원</string>
+    <string name="empty_tong_message">메세지가 없습니다.</string>
+    <string name="display_subscriber">회원 지도 보기 </string>
+    <string name="display_around_subscriber">주변 회원 </string>
+
+
+    <string name="add_reply">댓글달기</string>
+    <string name="no_plate">가입되지 않은 번호판 입니다.</string>
+    <string name="set_gps_message">위치 서비스가 활성화 되어있지 않습니다.\n
+        설정 화면으로 이동하시겠습니까?</string>
+
+
+    <string name="msg_opendoor">문이 열려 있어요.</string>
+    <string name="msg_lamp">브레이크등이 고장 났어요.</string>
+    <string name="msg_tir">타이어가 펑크 났어요.</string>
+    <string name="msg_trunk">트렁크가 열려있어요</string>
+    <string name="msg_drop">적재물이 낙하되어 있어요.</string>
+    <string name="msg_smoke">차량에서 연기가 나고 있어요.</string>
+    <string name="msg_box">적제물이 불량합니다.</string>
+    <string name="msg_roadline">차선이탈 주의하세요.</string>
+    <string name="msg_light">라이트가 켜져있어요.</string>
+    <string name="msg_baby">어린이가 차 안에 있어요.</string>
+    <string name="msg_accident">사고발생 주의하세요.</string>
+    <string name="msg_help">도와주세요.</string>
+    <string name="msg_flooding">침수 위험 주의하세요.</string>
+    <string name="msg_landslid">토사 낙석 주의하세요.</string>
+    <string name="msg_safe">안전운전 하세요.</string>
+    <string name="msg_parking">차량을 안전한 곳으로 이동해 주세요.</string>
+
+
+    <string-array name="radius_array">
+        <item>1km</item>
+        <item>3km</item>
+        <item>5km</item>
+    </string-array>
+    <string name="title_activity_map">MapActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_registration">registration</string>
+    <string name="title_activity_main_activity2">MainActivity2Activity</string>
+    <string name="title_activity_car_search">CarSearchActivity</string>
+
+</resources>

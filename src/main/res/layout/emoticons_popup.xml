@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.neighbor.ex.tong.ui.fragment.EmoticonSegment
+        android:id="@+id/emoticon_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:checkedButton="@+id/menu_highway"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/menu_highway"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/tab_highway"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/radio_colors" />
+
+        <RadioButton
+            android:id="@+id/menu_rest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/tab_rest"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/radio_colors" />
+    </com.neighbor.ex.tong.ui.fragment.EmoticonSegment>
+
+    <ViewSwitcher
+        android:id="@+id/emoticon_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <include
+            android:id="@+id/highway_grid"
+            layout="@layout/emoticons_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include
+            android:id="@+id/rest_grid"
+            layout="@layout/emoticons_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </ViewSwitcher>
+</LinearLayout>
