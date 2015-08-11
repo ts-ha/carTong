@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -81,14 +82,16 @@ public class RegistrationActivity extends Activity implements
 
     boolean isValidID(String email) {
         boolean err = false;
+        Log.d("hts", "isValidID email" + email);
 
-        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\\\w+\\\\.)+\\\\w+$";
+//        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\\\w+\\\\.)+\\\\w+$";
+        String regex = "^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+$";
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(email);
-        if (m.matches()) {
-            err = true;
-        }
-        return err;
+        return Pattern.matches(regex, email);
+//        if (m.matches()) {
+//            err = true;
+//        }
+//        return err;
     }
 
     private void hideKeyboard() {
@@ -137,12 +140,12 @@ public class RegistrationActivity extends Activity implements
             public void onClick(View view) {
                 final String userId = userID.getText().toString();
                 if (userId.length() > 0) {
-                    if (!isValidID(userId)) {
-                        handler.sendEmptyMessage(REQUEST_NOT_FORMAL);
-                    } else {
+//                    if (!isValidID(userId)) {
+//                        handler.sendEmptyMessage(REQUEST_NOT_FORMAL);
+//                    } else {
                         new CheckID().action(RegistrationActivity.this, userId, RegistrationActivity.this);
                         hideKeyboard();
-                    }
+//                    }
                 }
             }
         });

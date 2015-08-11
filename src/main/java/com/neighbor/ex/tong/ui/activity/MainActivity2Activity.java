@@ -31,14 +31,18 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CursorAdapter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +58,7 @@ import com.neighbor.ex.tong.LppService;
 import com.neighbor.ex.tong.R;
 import com.neighbor.ex.tong.common.AppUtil;
 import com.neighbor.ex.tong.common.Common;
+import com.neighbor.ex.tong.common.SharedPreferenceManager;
 import com.neighbor.ex.tong.network.RequestAllCarNo;
 import com.neighbor.ex.tong.network.SendDeviceID;
 import com.neighbor.ex.tong.provider.DataProvider;
@@ -222,9 +227,12 @@ public class MainActivity2Activity extends AppCompatActivity implements
         Bundle bundle = getIntent().getExtras();
 
 
+        if (!SharedPreferenceManager.getValue(this, SharedPreferenceManager.positionAgree)
+                .equalsIgnoreCase("true")) {
+            showDialogAree();
+        }
         if (null != bundle) {
             String pushNoit = bundle.getString(Common.PUSH_NOIT, Common.PUSH_NOIT);
-//            Log.d("hts", "pushNoit : " + pushNoit);
             if (pushNoit != null && !pushNoit.isEmpty()) {
                 selectItem(3);
                 setTitle(getResources().getStringArray(R.array.menu_array)[3]);
@@ -233,6 +241,38 @@ public class MainActivity2Activity extends AppCompatActivity implements
             selectItem(0);
             setTitle(getResources().getStringArray(R.array.menu_array)[0]);
         }
+
+
+    }
+
+    private void showDialogAree() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        dialog.setContentView(R.layout.dialog_agree); // custom_dialog.xml 로 저장된 layout 설정 파일을 view 설정한다.
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        final CheckBox accountLicense = (CheckBox) dialog.findViewById(R.id.checkBoxAgree);
+        final Button agreeBtn = (Button) dialog.findViewById(R.id.buttonAgree);
+        final Button agreeCancelBtn = (Button) dialog.findViewById(R.id.buttonAgreeCancel);
+        agreeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (accountLicense.isChecked()) {
+                    SharedPreferenceManager.setValue(MainActivity2Activity.this, SharedPreferenceManager.positionAgree, "true");
+                    dialog.dismiss();
+                }
+            }
+        });
+        agreeCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               finish();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
     }
 
     @Override
@@ -623,6 +663,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
             }
             String condition = "PLATE_NUMBER LIKE '%" + inputCarNo.getText().toString() + "'";
             Log.d("hts", "condition : " + condition);
+
             return mContent.query(DataProvider.PLATE_URI, null,
                     condition, null, null);
         }

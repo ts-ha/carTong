@@ -10,7 +10,7 @@
         android:id="@+id/emoticon_tab"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="3dp"
         android:checkedButton="@+id/menu_highway"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"

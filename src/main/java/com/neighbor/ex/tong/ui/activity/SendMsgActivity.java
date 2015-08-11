@@ -206,7 +206,6 @@ public class SendMsgActivity extends AppCompatActivity implements
 
         enablePopUpView();
         checkKeyboardHeight(parentLayout);
-
         buildGoogleApiClient();
     }
 
@@ -215,7 +214,7 @@ public class SendMsgActivity extends AppCompatActivity implements
         public void onClick(View v) {
 
             if (!popupWindow.isShowing()) {
-                popupWindow.setHeight(keyboardHeight + 200);
+                popupWindow.setHeight(keyboardHeight + 150);
                 if (isKeyBoardVisible) {
                     if (iskeyBordShow) {
                         container.setVisibility(LinearLayout.GONE);
@@ -311,7 +310,11 @@ public class SendMsgActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
-        finish();
+        if (popupWindow != null && popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            finish();
+        }
     }
 
     void enablePopUpView() {
@@ -395,6 +398,7 @@ public class SendMsgActivity extends AppCompatActivity implements
             }
         });
     }
+
 
     private void addImageBetweentext(String path, String content) {
         try {

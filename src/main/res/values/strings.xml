@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">카통</string>
-
     <string-array name="menu_array">
         <item>통하기</item>
         <item>내 주변과 통</item>
@@ -26,6 +25,8 @@
     <string name="action_settings">설정</string>
     <string name="user_name">사용자 1</string>
     <string name="make_message">제보하기</string>
+
+    <string name="link">이용약관 동의서</string>
 
     <string name="title_login">로그인</string>
     <string name="title_registration">회원가입</string>
