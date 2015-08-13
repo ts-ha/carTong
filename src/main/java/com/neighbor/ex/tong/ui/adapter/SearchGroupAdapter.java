@@ -70,8 +70,10 @@ public class SearchGroupAdapter extends ArrayAdapter<SearchGroupList.Row> {
             ownGroupBtn.setVisibility(View.INVISIBLE);
         }
 
+
         roomName.setText(item.getROOM_NAME());
         roomDesc.setText(item.getROOM_DESC());
+
         roomDate.setText(item.getREG_DATE());
         mygroupOwner.setText(item.getROOM_MASTER_CAR_NUM());
 

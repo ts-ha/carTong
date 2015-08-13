@@ -30,6 +30,8 @@ import com.neighbor.ex.tong.common.Common;
 import com.neighbor.ex.tong.network.NetworkManager;
 import com.neighbor.ex.tong.ui.activity.LoginActivity;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -153,7 +155,15 @@ public class SettingFragment extends Fragment {
                         edittor.putString(CONST.ACCOUNT_PSW, accountLicense.getText().toString());
                         edittor.commit();
                         String url = "http://211.189.132.184:8080/Tong/api/changeMemberInfo.do?memberPw=%s&aliasName=&memberGmail=%s";
-                        url = String.format(url, accountLicense.getText().toString(),
+                        String pw = "";
+                        try {
+                            pw = URLEncoder.encode(accountLicense.getText().toString(), "utf-8");
+//                        NickNameString = URLEncoder.encode(NickNameString, "utf-8");
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+
+                        url = String.format(url, pw,
                                 pref.getString(CONST.ACCOUNT_ID, ""));
                         NetworkManager.getInstance(getActivity()).requestJsonObject(getActivity(), url,
                                 Request.Method.GET, mHandler,
@@ -195,8 +205,15 @@ public class SettingFragment extends Fragment {
                     edittor.commit();
                     carNumber.setText(accountLicense.getText().toString());
                     String url = "http://211.189.132.184:8080/Tong/api/changeMyCarNum.do?memberGmail=%s&carNum=%s";
+                    String pw = "";
+                    try {
+                        pw = URLEncoder.encode(accountLicense.getText().toString(), "utf-8");
+//                        NickNameString = URLEncoder.encode(NickNameString, "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
                     url = String.format(url, pref.getString(CONST.ACCOUNT_ID, ""),
-                            pref.getString(CONST.ACCOUNT_LICENSE, ""));
+                            pw);
                     Log.d("hts", "changeMyCarNum : " + url);
                     NetworkManager.getInstance(getActivity()).requestJsonObject(getActivity(), url,
                             Request.Method.GET, mHandler,

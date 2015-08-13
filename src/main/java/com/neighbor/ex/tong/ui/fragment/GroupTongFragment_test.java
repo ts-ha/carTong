@@ -63,6 +63,7 @@ public class GroupTongFragment_test extends Fragment {
     private final static String MAKE_GROUP_URL =
             "http://211.189.132.184:8080/Tong/regTongInfo.do?roomMasterGmail=%s&roomName=%s&roomDesc=%s";
     private static final String TAG = "GroupTongFragment_test";
+    private static final int HANDLE_FAIL_LODING =8000 ;
 
     private EditText groupInput;
     private String mMode, userID;
@@ -95,6 +96,7 @@ public class GroupTongFragment_test extends Fragment {
             ((MainActivity2Activity) getActivity()).hideKeyboard();
             switch (msg.what) {
                 case HANDLE_FAIL_REG_TONG_MEMBER_INFO:
+                    Toast.makeText(getActivity(), "그룹생성에 실패했습니다.", Toast.LENGTH_SHORT).show();
                     break;
                 case HANDLE_SUCCESS_REG_TONG_MEMBER_INFO:
                     mMode = "groups";
@@ -125,6 +127,9 @@ public class GroupTongFragment_test extends Fragment {
                 case HANDLE_FAIL_SEARCH_ROOM_LIST_ID:
                     meditKeywordText.setText("");
                     break;
+                case HANDLE_FAIL_LODING:
+                    CommonProgressDialog.hideProgress();
+                    Toast.makeText(getActivity(), "네트워크 상태가 좋지 않습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                 default:
             }
 
@@ -314,6 +319,7 @@ public class GroupTongFragment_test extends Fragment {
     public void onResume() {
         super.onResume();
         String uri = MakeUri(mMode);
+        CommonProgressDialog.showProgressDialog(getActivity());
         Request request = new Request(getActivity().getApplication(), uri);
         request.execute();
     }
@@ -332,7 +338,7 @@ public class GroupTongFragment_test extends Fragment {
             super.onPreExecute();
             myList.clear();
             totalList.clear();
-            CommonProgressDialog.showProgressDialog(getActivity());
+
         }
 
         @Override
@@ -396,6 +402,7 @@ public class GroupTongFragment_test extends Fragment {
                     myList.add(map);
                 }
             } catch (Exception e) {
+                mHandler.sendEmptyMessage(HANDLE_FAIL_LODING);
                 e.printStackTrace();
             }
             return myList;
@@ -428,6 +435,14 @@ public class GroupTongFragment_test extends Fragment {
                 String input = groupInput.getText().toString().trim();
                 if (!input.isEmpty() && !desc.isEmpty()) {
                     dialog.dismiss();
+
+                    try {
+                        input = URLEncoder.encode(input, "utf-8");
+                        desc = URLEncoder.encode(desc, "utf-8");
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
                     String url = String.format(MAKE_GROUP_URL, pref.getString(CONST.ACCOUNT_ID, ""), input
                             , desc);
                     NetworkManager.getInstance(getActivity()).requestJsonObject(getActivity(), url,

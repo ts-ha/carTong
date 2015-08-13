@@ -28,6 +28,9 @@ import com.neighbor.ex.tong.common.Common;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 
 public class LoginActivity extends Activity {
 
@@ -155,7 +158,13 @@ public class LoginActivity extends Activity {
         protected Integer doInBackground(Void... params) {
             StringBuffer mkcheking = new StringBuffer();
             mkcheking.append(LOGIN);
-            mkcheking.append(id);
+//            mkcheking.append(id);
+            try {
+                mkcheking.append(URLEncoder.encode(id, "utf-8"));
+            } catch (UnsupportedEncodingException e) {
+                mkcheking.append("");
+                e.printStackTrace();
+            }
             mkcheking.append("&passwd=");
             mkcheking.append(psw);
 

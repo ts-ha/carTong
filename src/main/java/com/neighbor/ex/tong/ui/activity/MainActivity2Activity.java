@@ -267,7 +267,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
         agreeCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               finish();
+                finish();
             }
         });
         dialog.setCancelable(false);
@@ -340,6 +340,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
 //                    intent.putExtra("path", mCapturePhotoPath);
 //                    startActivity(intent);
 //                }
+                Toast.makeText(MainActivity2Activity.this, "서버와 연결을 할 수 없습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -512,6 +513,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
+
 //                int result = s.compareTo(prefs.getString(CONST.ACCOUNT_DEV, ""));
 //                if (result != 0) {
 //                    SharedPreferences.Editor edittor = prefs.edit();

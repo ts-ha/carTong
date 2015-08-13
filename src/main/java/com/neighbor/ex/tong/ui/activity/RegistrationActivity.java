@@ -204,12 +204,12 @@ public class RegistrationActivity extends Activity implements
                     hideKeyboard();
                     String userPlateNoString = userPlateNo.getText().toString();
                     String NickNameString = userNickName.getText().toString();
-                    try {
-                        userPlateNoString = URLEncoder.encode(userPlateNoString, "utf-8");
-                        NickNameString = URLEncoder.encode(NickNameString, "utf-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//                        userPlateNoString = URLEncoder.encode(userPlateNoString, "utf-8");
+//                        NickNameString = URLEncoder.encode(NickNameString, "utf-8");
+//                    } catch (UnsupportedEncodingException e) {
+//                        e.printStackTrace();
+//                    }
                     new Registration().action(RegistrationActivity.this, userID.getText().toString(),
                             userPW.getText().toString(), userPlateNoString,
                             NickNameString);

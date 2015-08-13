@@ -192,8 +192,6 @@ public class MapFragment extends Fragment {
 
         @Override
         protected ArrayList doInBackground(Void... params) {
-
-
             GPSInfo info = GPSInfo.CreateInstance();
             HashMap<String, Double> gpsMap = info.getGPSInfo();
 
@@ -206,6 +204,17 @@ public class MapFragment extends Fragment {
             if (pos_x == 0 && pos_y == 0) {
                 long lonLatitude = prefs.getLong(CONST.GPS_LATITUDE, 0);
                 long lonLongitude = prefs.getLong(CONST.GPS_LONGITUDE, 0);
+            }
+
+            Location lastLocation = ((MainActivity2Activity) getActivity()).getLastLocation();
+
+
+            if (lastLocation != null) {
+                pos_x = lastLocation.getLatitude();
+                pos_y = lastLocation.getLongitude();
+            } else {
+                pos_x = 0.0;
+                pos_y = 0.0;
             }
 
             StringBuilder makeUri = new StringBuilder();
