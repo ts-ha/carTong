@@ -1,5 +1,6 @@
 package com.neighbor.ex.tong.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -14,9 +15,12 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -117,9 +121,31 @@ public class MainActivity2Activity extends AppCompatActivity implements
     private AutoCompleteDbAdapter autoCompleteAdapter;
     //    private SleepLogFragment sleepLViewogFragment;
     private static int fragmentIdx = 0;
+    private static int IMAGE_SUCCESS = 9001;
+    private static int IMAGE_FAIL = 9002;
     private LocationManager lm;
     private GoogleApiClient mGoogleApiClient;
     private TextView mUserName, mUserNickName;
+
+
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+//            switch (msg.what) {
+//                case SESSION_SUCCESS:
+//                    break;
+//
+//                case IMAGE_SUCCESS:
+//                    break;
+//
+//            }
+        }
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +211,12 @@ public class MainActivity2Activity extends AppCompatActivity implements
         carNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                cameraIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 1);
+//                startActivityForResult(cameraIntent, PICK_CAMERA_REQUEST);
+
+                inputCarNo.setText("");
+                Intent cameraIntent = new Intent(MainActivity2Activity.this, OilCamera.class);
                 startActivityForResult(cameraIntent, PICK_CAMERA_REQUEST);
             }
         });
@@ -334,15 +365,32 @@ public class MainActivity2Activity extends AppCompatActivity implements
                 }
                 break;
             case PICK_CAMERA_REQUEST:
-//                if (resultCode == RESULT_OK && null != data) {
-//                    String mCapturePhotoPath = getRealPathFromURI(data.getData());
-//                    Intent intent = new Intent(MainFragment.this, PhotoSendActivity.class);
-//                    intent.putExtra("path", mCapturePhotoPath);
-//                    startActivity(intent);
-//                }
-                Toast.makeText(MainActivity2Activity.this, "서버와 연결을 할 수 없습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                if (resultCode == RESULT_OK && null != data) {
+                    String carNum = data.getStringExtra("carNum");
+                    if (carNum.equalsIgnoreCase("미인식")) {
+                        Toast.makeText(MainActivity2Activity.this, "미인식 차량입니다. 다시 시도해 주세요.", Toast.LENGTH_SHORT).show();
+                        inputCarNo.setText("");
+                    } else {
+                        String resultCarNo = data.getStringExtra("resultCarNo");
+                        Log.d("hts", "resultCarNo : " + resultCarNo);
+                        resultCarNo = resultCarNo.substring(resultCarNo.length() - 4, resultCarNo.length());
+                        inputCarNo.setText(resultCarNo);
+                    }
+                }
                 break;
         }
+    }
+
+    public String getRealPathFromURI(Uri contentUri) {
+        // can post image
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, // Which columns to return
+                null,       // WHERE clause; which rows to return (all rows)
+                null,       // WHERE clause selection arguments (none)
+                null); // Order-by clause (ascending by name)
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
     }
 
     private boolean checkPlayServices() {

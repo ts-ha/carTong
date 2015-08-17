@@ -29,7 +29,8 @@ import java.net.URLEncoder;
 
 
 public class UploadFileAndMessage extends AsyncTask<Void, Void, Void> {
-    private final String UPLAOD_URL = "http://211.189.132.184:8080/Tong/pushMsgByCarNum.do?senderMemberCarNum=";
+//    private final String UPLAOD_URL = "http://211.189.132.184:8080/Tong/pushMsgByCarNum.do?senderMemberCarNum=";
+    private final String UPLAOD_URL = "http://61.97.129.99:9000/OCRCarNoDetect";
 
     private String          path;
     private String          message;
@@ -95,6 +96,6 @@ public class UploadFileAndMessage extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         mProgressDialog.dismiss();
         super.onPostExecute(aVoid);
-        ((Activity)context).finish();
+//        ((Activity)context).finish();
     }
 }

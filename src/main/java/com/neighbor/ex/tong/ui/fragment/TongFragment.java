@@ -80,6 +80,7 @@ public class TongFragment extends Fragment {
 //    private Button mRegistAccident;
     Handler mHandler;
     private String msg;
+    private String mId;
 
     {
         mHandler = new Handler() {
@@ -204,7 +205,7 @@ public class TongFragment extends Fragment {
         imageButtonHelp.setOnClickListener(onClickListener);
         imageButtonAccident.setOnClickListener(onClickListener);
 
-
+        mId = SharedPreferenceManager.getValue(getActivity(), CONST.ACCOUNT_ID);
         segGroup = (RadioGroup) mainView.findViewById(R.id.sort);
         segGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
@@ -402,7 +403,7 @@ public class TongFragment extends Fragment {
             String Distance = prefs.getString("radius", "1km");
             makeUri.append(Distance.substring(0, 1));
             makeUri.append("&memberGmail=");
-            makeUri.append(SharedPreferenceManager.getValue(getActivity().getApplicationContext(), CONST.ACCOUNT_ID) + "@gmail.com");
+            makeUri.append(mId + "@gmail.com");
 
 
             String jsonResult = Utils.getJSON(makeUri.toString(), 15000);
