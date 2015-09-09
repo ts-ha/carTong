@@ -31,7 +31,6 @@ public class RequestAllCarNo {
 
         public AllSubscriber(String license) {
             All_CAR_NO_URL += license;
-            Log.d("hts", "AllSubscriber : " + All_CAR_NO_URL);
         }
 
         @Override

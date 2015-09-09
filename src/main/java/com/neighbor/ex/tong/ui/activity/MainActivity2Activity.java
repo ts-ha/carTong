@@ -29,7 +29,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -128,24 +130,8 @@ public class MainActivity2Activity extends AppCompatActivity implements
     private TextView mUserName, mUserNickName;
 
 
-    @SuppressLint("HandlerLeak")
-    private Handler mHandler = new Handler() {
 
-        @Override
-        public void handleMessage(Message msg) {
-            // TODO Auto-generated method stub
-            super.handleMessage(msg);
-//            switch (msg.what) {
-//                case SESSION_SUCCESS:
-//                    break;
-//
-//                case IMAGE_SUCCESS:
-//                    break;
-//
-//            }
-        }
-
-    };
+    private boolean isPause;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,10 +166,37 @@ public class MainActivity2Activity extends AppCompatActivity implements
                 String number = cursor.getString(cursor.getColumnIndexOrThrow("PLATE_NUMBER"));
                 Intent intent = new Intent(MainActivity2Activity.this, SendMsgActivity.class);
                 intent.putExtra("destNo", number);
-                startActivity(intent);
                 inputCarNo.setText("");
+                startActivity(intent);
             }
         });
+
+        inputCarNo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (inputCarNo.getText().toString().trim().length() == 4) {
+                    String tem = inputCarNo.getText().toString().substring(inputCarNo.getText().length() - 2, inputCarNo.getText().length());
+                    String condition = "PLATE_NUMBER LIKE '%" + tem + "'";
+                    Cursor query = getContentResolver().query(DataProvider.PLATE_URI, null,
+                            condition, null, null);
+                    if (query.getCount() == 0 && !isPause) {
+                        Toast.makeText(MainActivity2Activity.this, "검색된 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
+
 
         inputCarNo.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -192,10 +205,9 @@ public class MainActivity2Activity extends AppCompatActivity implements
                     case EditorInfo.IME_ACTION_SEARCH:
                         Intent intent = new Intent(MainActivity2Activity.this, CarSearchActivity.class);
                         intent.putExtra("inputCarNo", inputCarNo.getText().toString());
-                        inputCarNo.setText("");
                         hideKeyboard();
+                        isPause = true;
                         startActivity(intent);
-
                         break;
                     default:
                         return false;
@@ -203,6 +215,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
                 return false;
             }
         });
+
 
         RequestAllCarNo carNumbers = new RequestAllCarNo();
         carNumbers.Action(MainActivity2Activity.this);
@@ -215,7 +228,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
 //                cameraIntent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 1);
 //                startActivityForResult(cameraIntent, PICK_CAMERA_REQUEST);
 
-                inputCarNo.setText("");
+//                inputCarNo.setText("");
                 Intent cameraIntent = new Intent(MainActivity2Activity.this, OilCamera.class);
                 startActivityForResult(cameraIntent, PICK_CAMERA_REQUEST);
             }
@@ -272,9 +285,8 @@ public class MainActivity2Activity extends AppCompatActivity implements
             selectItem(0);
             setTitle(getResources().getStringArray(R.array.menu_array)[0]);
         }
-
-
     }
+
 
     private void showDialogAree() {
         final Dialog dialog = new Dialog(this);
@@ -309,12 +321,15 @@ public class MainActivity2Activity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+        isPause = false;
+//        inputCarNo.setText("");
         buildGoogleApiClient();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        isPause = true;
         if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();
         }
@@ -360,8 +375,17 @@ public class MainActivity2Activity extends AppCompatActivity implements
                             getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     String regex = "[0-9]{4}";
                     String resultData = result.get(0);
-                    if (resultData.matches(regex))
+                    if (resultData.matches(regex)) {
+                        inputCarNo.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                inputCarNo.showDropDown();
+                            }
+                        }, 500);
+//                        Toast.makeText(MainActivity2Activity.this, "resultData : " + resultData, Toast.LENGTH_SHORT).show();
                         inputCarNo.setText(resultData);
+                        inputCarNo.setSelection(inputCarNo.getText().length());
+                    }
                 }
                 break;
             case PICK_CAMERA_REQUEST:
@@ -623,7 +647,6 @@ public class MainActivity2Activity extends AppCompatActivity implements
     };
 
     private void bindService() {
-        Log.d("hts", "bindService~~~~~~~~~~~~~~~~~~~~~");
         Intent intent = null;
         try {
             intent = new Intent(getApplication().getApplicationContext(), Class.forName(LppService.class.getName()));
@@ -703,6 +726,7 @@ public class MainActivity2Activity extends AppCompatActivity implements
             if (cursor != null) {
                 String plateNumber = cursor.getString(cursor.getColumnIndex("PLATE_NUMBER"));
                 carNo.setText(plateNumber);
+                Log.d("hts", "plateNumber : " + plateNumber);
             }
         }
 
@@ -713,15 +737,24 @@ public class MainActivity2Activity extends AppCompatActivity implements
             }
             String condition = "PLATE_NUMBER LIKE '%" + inputCarNo.getText().toString() + "'";
             Log.d("hts", "condition : " + condition);
-
-            return mContent.query(DataProvider.PLATE_URI, null,
+            Cursor query = mContent.query(DataProvider.PLATE_URI, null,
                     condition, null, null);
+//            if (query == null && inputCarNo.getText().length() == 4) {
+//                Toast.makeText(MainActivity2Activity.this, "검색된 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+//            }
+
+            return query;
         }
 
         @Override
         public CharSequence convertToString(Cursor cursor) {
             final int columnIndex = cursor.getColumnIndexOrThrow("PLATE_NUMBER");
             final String str = cursor.getString(columnIndex);
+//            Log.d("hts", "str ~~~~~~~~ : " + str);
+//
+//            if (str.isEmpty() || str == null) {
+//                Toast.makeText(MainActivity2Activity.this, "검색된 결과가 없습니다.", Toast.LENGTH_SHORT).show();
+//            }
             return str;
         }
     }

@@ -362,8 +362,8 @@ public class OilCamera extends Activity implements OnTouchListener {
 //            UiProgress.showProgress(mContext, R.string.progress_wait);
 
             BitmapFactory.Options options = new BitmapFactory.Options();
-//            options.inSampleSize = getImageCompressSize(data.length);
-            options.inSampleSize = 4;
+            options.inSampleSize = getImageCompressSize(data.length);
+//            options.inSampleSize = 4;
 
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length,
                     options);

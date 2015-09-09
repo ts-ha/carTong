@@ -52,6 +52,25 @@
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/btn_send_press" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="220dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rec" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:background="#7FC0C0C0"
+            android:textColor="@android:color/white"
+            android:text="차량번호판이 수평하게 사각에 꽉 차게 맞춰세요."
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </RelativeLayout>
 
 </LinearLayout>
