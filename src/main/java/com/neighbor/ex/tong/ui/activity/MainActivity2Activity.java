@@ -382,7 +382,6 @@ public class MainActivity2Activity extends AppCompatActivity implements
                                 inputCarNo.showDropDown();
                             }
                         }, 500);
-//                        Toast.makeText(MainActivity2Activity.this, "resultData : " + resultData, Toast.LENGTH_SHORT).show();
                         inputCarNo.setText(resultData);
                         inputCarNo.setSelection(inputCarNo.getText().length());
                     }
@@ -398,7 +397,14 @@ public class MainActivity2Activity extends AppCompatActivity implements
                         String resultCarNo = data.getStringExtra("resultCarNo");
                         Log.d("hts", "resultCarNo : " + resultCarNo);
                         resultCarNo = resultCarNo.substring(resultCarNo.length() - 4, resultCarNo.length());
+                        inputCarNo.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                inputCarNo.showDropDown();
+                            }
+                        }, 500);
                         inputCarNo.setText(resultCarNo);
+                        inputCarNo.setSelection(inputCarNo.getText().length());
                     }
                 }
                 break;

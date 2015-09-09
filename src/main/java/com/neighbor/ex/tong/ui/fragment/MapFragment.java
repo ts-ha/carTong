@@ -123,7 +123,7 @@ public class MapFragment extends Fragment {
 //                    Log.d("hts", "myLocationChangeListener : " + loc.toString());
                     info.setGPSinfo(location.getLatitude(), location.getLongitude());
 
-                    mMarker = mMap.addMarker(new MarkerOptions().position(loc));
+//                    mMarker = mMap.addMarker(new MarkerOptions().position(loc));
                 }
             };
 
