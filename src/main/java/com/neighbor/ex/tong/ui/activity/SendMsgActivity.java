@@ -375,7 +375,7 @@ public class SendMsgActivity extends AppCompatActivity implements
         restlist.add(new EmoticonItem("chat_msg_light.png", getResources().getString(R.string.msg_light)));
         restlist.add(new EmoticonItem("chat_msg_puncture.png", getResources().getString(R.string.msg_tir)));
         restlist.add(new EmoticonItem("chat_msg_opentrunk.png", getResources().getString(R.string.msg_trunk)));
-        restlist.add(new EmoticonItem("chat_msg_troublelamp.png", getResources().getString(R.string.msg_smoke)));
+        restlist.add(new EmoticonItem("chat_msg_troublelamp.png", getResources().getString(R.string.msg_lamp)));
         restlist.add(new EmoticonItem("chat_msg_babyincar.png", getResources().getString(R.string.msg_baby)));
 
         ImageAdapter restAdapter = new ImageAdapter(SendMsgActivity.this, restlist);

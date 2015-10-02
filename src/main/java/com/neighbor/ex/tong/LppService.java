@@ -116,6 +116,7 @@ public class LppService extends LpmBaseService {
         if (pushMessage.getMsg() != null) {
             sendGCMIntent(context, pushMessage);
             if (false == isRunning) {
+                Log.d("hts", "pushMessage.getMsg() : " + pushMessage.getMsg());
                 Uri path = getSoundPath(pushMessage.getMsg());
                 int NOTI_ID = 0;
                 int icon = R.drawable.icon;
@@ -225,8 +226,13 @@ public class LppService extends LpmBaseService {
 
         if (message.matches(".*문.*")) {
             sb.append(R.raw.door);
-        } else if (message.matches(".*적재물.*")) {
+        } else if (message.matches(".*불량합니다.*")) {
+
             sb.append(R.raw.drop);
+        } else if (message.matches(".*적재물.*")) {
+            sb.append(R.raw.msg_box);
+        } else if (message.matches(".*켜져있어요.*")) {
+            sb.append(R.raw.msg_light);
         } else if (message.matches(".*라이트.*")) {
             sb.append(R.raw.light);
         } else if (message.matches(".*타이어.*")) {
@@ -234,6 +240,16 @@ public class LppService extends LpmBaseService {
         } else if (message.matches(".*도와주세요.*")) {
             sb.append(R.raw.help);
             message = "도와주세요";
+        } else if (message.matches(".*트렁크가.*")) {
+            sb.append(R.raw.trunk);
+        } else if (message.matches(".*차선이탈.*")) {
+            sb.append(R.raw.lane_out);
+        } else if (message.matches(".*연기가.*")) {
+            sb.append(R.raw.smoke);
+        } else if (message.matches(".*브레이크등이.*")) {
+            sb.append(R.raw.msg_lamp);
+        } else if (message.matches(".*어린이.*")) {
+            sb.append(R.raw.msg_baby);
         } else if (message.matches(".*졸지마세요.*")) {
             sb.append(R.raw.notsleep);
             message = "졸지마세요";

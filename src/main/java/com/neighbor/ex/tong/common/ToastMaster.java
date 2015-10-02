@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ToastMaster extends Toast {
@@ -76,6 +78,9 @@ public class ToastMaster extends Toast {
 		cancelToast();
 		sToast = makeText(context, text, LENGTH_LONG);
 		sToast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, (int)convertDpToPixel(context, TOAST_HEIGHT));
+		LinearLayout toastLayout = (LinearLayout) sToast.getView();
+		TextView toastTV = (TextView) toastLayout.getChildAt(0);
+		toastTV.setTextSize(30);
 		sToast.show();
 	}
 
